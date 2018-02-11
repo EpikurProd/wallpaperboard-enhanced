@@ -3,7 +3,7 @@ apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group = 'com.github.danimahardhika'
+group = 'com.github.sadiqrazasyed'
 
 /*
  * Wallpaper Board
@@ -44,8 +44,8 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.MinSdk
         targetSdkVersion rootProject.ext.TargetSdk
-        versionCode 172
-        versionName "1.7.0-b3"
+        versionCode 174
+        versionName "1.7.0-b5-1"
         vectorDrawables.useSupportLibrary = true
         manifestPlaceholders = [onesignal_app_id: "key",
                                 onesignal_google_project_number: "key"]
@@ -77,6 +77,8 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:1.10.19'
 
     retrolambdaConfig 'net.orfjackal.retrolambda:retrolambda:2.5.1'
     compile 'com.github.danimahardhika.candybar-library:PreLollipopTransitions:3.2.0'
@@ -100,30 +102,32 @@ dependencies {
     compile 'com.afollestad.material-dialogs:core:0.9.5.0'
     compile 'com.mikhaellopez:circularimageview:3.0.2'
     compile 'com.anjlab.android.iab.v3:library:1.0.44'
-    compile 'com.github.chrisbanes:PhotoView:1.3.1'
+    compile 'com.github.chrisbanes:PhotoView:2.1.3'
     compile 'com.google.android.apps.muzei:muzei-api:2.0'
     compile 'org.sufficientlysecure:html-textview:3.5'
     compile 'com.github.KeepSafe:TapTargetView:1.9.1'
-    compile 'com.sothree.slidinguppanel:library:3.3.1'
+    compile 'com.sothree.slidinguppanel:library:3.4.0'
     compile 'me.zhanghai.android.materialprogressbar:library:1.4.2'
 
-    compile 'com.github.danimahardhika:cafebar:-SNAPSHOT'
-    compile 'com.github.danimahardhika.android-helpers:core:0.0.9'
-    compile 'com.github.danimahardhika.android-helpers:animation:0.0.9'
-    compile 'com.github.danimahardhika.android-helpers:license:0.0.9'
-    compile 'com.github.danimahardhika.android-helpers:permission:0.0.9'
+    compile 'com.github.danimahardhika:cafebar:1.3.2'
+    implementation('com.github.danimahardhika.android-helpers:core:-SNAPSHOT') {
+        changing = true
+    }
+    compile 'com.github.danimahardhika.android-helpers:animation:0.1.0'
+    compile 'com.github.danimahardhika.android-helpers:license:0.1.0'
+    compile 'com.github.danimahardhika.android-helpers:permission:0.1.0'
 
     // OneSignal SDK
     implementation 'com.onesignal:OneSignal:3.+@aar'
     // Required for OneSignal
-    implementation 'com.google.android.gms:play-services-gcm:11.4.2'
-    implementation 'com.google.android.gms:play-services-analytics:11.4.2'
+    implementation 'com.google.android.gms:play-services-gcm:11.6.2'
+    implementation 'com.google.android.gms:play-services-analytics:11.6.2'
 
     // App Updater
     compile 'com.github.javiersantos:AppUpdater:2.6.3'
 
     // Google Ads
-    compile 'com.google.android.gms:play-services-ads:11.4.2'
+    compile 'com.google.android.gms:play-services-ads:11.6.2'
 
     // Material Dialogs With Additional Features
     compile 'com.github.javiersantos:MaterialStyledDialogs:2.1'
@@ -142,3 +146,4 @@ configurations.all {
         }
     }
 }
+
